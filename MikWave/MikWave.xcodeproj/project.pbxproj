@@ -1235,7 +1235,6 @@
 			children = (
 				E6B7F5CC1C2ED76200357437 /* CocoaAsyncSocket */,
 				E6B7F5CF1C2ED76200357437 /* CocoaLumberjack */,
-				E6B7F5E01C2ED76200357437 /* facebook-ios-sdk */,
 				E6B7F5E11C2ED76200357437 /* KissXML */,
 				E6B7F5EE1C2ED76200357437 /* libidn */,
 			);
@@ -1279,13 +1278,6 @@
 				E6B7F5DF1C2ED76200357437 /* README.txt */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E6B7F5E01C2ED76200357437 /* facebook-ios-sdk */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "facebook-ios-sdk";
 			sourceTree = "<group>";
 		};
 		E6B7F5E11C2ED76200357437 /* KissXML */ = {
@@ -1695,6 +1687,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = mikwave/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1717,6 +1710,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = mikwave/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1780,6 +1774,7 @@
 				E6B7F2CE1C2ED68100357437 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6B7F2CF1C2ED68100357437 /* Build configuration list for PBXNativeTarget "mikwaveTests" */ = {
 			isa = XCConfigurationList;
@@ -1788,6 +1783,7 @@
 				E6B7F2D11C2ED68100357437 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
