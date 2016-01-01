@@ -42,14 +42,14 @@
                                         <rect key="frame" x="100" y="0.0" width="80" height="80"/>
                                         <animations/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1232323" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3e-TV-aRD">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="用户名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3e-TV-aRD">
                                         <rect key="frame" x="0.0" y="83" width="280" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yuS-Hb-0JE">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yuS-Hb-0JE">
                                         <rect key="frame" x="0.0" y="103" width="280" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -58,9 +58,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lr1-j6-xXQ">
                                         <rect key="frame" x="0.0" y="141" width="280" height="30"/>
                                         <animations/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="登录">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginBtnClick:" destination="bZj-hW-Fdg" eventType="touchUpInside" id="bkc-GV-ovA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQK-yW-Hzi">
                                         <rect key="frame" x="66" y="168" width="30" height="30"/>
@@ -113,6 +116,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="登录" id="U7U-iW-Zf2"/>
                     <connections>
+                        <outlet property="loginBtn" destination="Lr1-j6-xXQ" id="Edi-zc-TDV"/>
+                        <outlet property="pwdField" destination="yuS-Hb-0JE" id="g7E-U3-RSN"/>
                         <outlet property="userLabel" destination="I3e-TV-aRD" id="NIK-BL-ta2"/>
                     </connections>
                 </viewController>

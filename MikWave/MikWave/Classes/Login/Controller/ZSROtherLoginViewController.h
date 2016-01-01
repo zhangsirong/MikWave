@@ -6,8 +6,7 @@
 //
 //
 
-#import <UIKit/UIKit.h>
-
-@interface ZSROtherLoginViewController : UIViewController
+#import "ZSRBaseLoginViewController.h"
+@interface ZSROtherLoginViewController : ZSRBaseLoginViewController
 
 @end

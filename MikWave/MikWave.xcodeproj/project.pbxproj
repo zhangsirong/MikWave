@@ -159,6 +159,7 @@
 		E6C29B171C369C190059E033 /* ZSRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C29B161C369C190059E033 /* ZSRUserInfo.m */; };
 		E6C29B1F1C369E4E0059E033 /* ZSRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C29B1E1C369E4E0059E033 /* ZSRNavigationController.m */; };
 		E6C29B221C36A5590059E033 /* ZSRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C29B211C36A5590059E033 /* ZSRLoginViewController.m */; };
+		E6C29B281C36AC2D0059E033 /* ZSRBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C29B271C36AC2D0059E033 /* ZSRBaseLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -483,6 +484,8 @@
 		E6C29B1E1C369E4E0059E033 /* ZSRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRNavigationController.m; sourceTree = "<group>"; };
 		E6C29B201C36A5590059E033 /* ZSRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRLoginViewController.h; sourceTree = "<group>"; };
 		E6C29B211C36A5590059E033 /* ZSRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRLoginViewController.m; sourceTree = "<group>"; };
+		E6C29B261C36AC2D0059E033 /* ZSRBaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRBaseLoginViewController.h; sourceTree = "<group>"; };
+		E6C29B271C36AC2D0059E033 /* ZSRBaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRBaseLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1443,6 +1446,8 @@
 		E6B91E651C3412DA0058AE86 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E6C29B261C36AC2D0059E033 /* ZSRBaseLoginViewController.h */,
+				E6C29B271C36AC2D0059E033 /* ZSRBaseLoginViewController.m */,
 				E6C29B201C36A5590059E033 /* ZSRLoginViewController.h */,
 				E6C29B211C36A5590059E033 /* ZSRLoginViewController.m */,
 				E63707021C3413FA0063183F /* ZSROtherLoginViewController.h */,
@@ -1625,6 +1630,7 @@
 				E6B7F6131C2ED76200357437 /* XMPPRoster.m in Sources */,
 				E63707161C3417700063183F /* UIStoryboard+WF.m in Sources */,
 				E6B7F6621C2ED76200357437 /* XMPPIDTracker.m in Sources */,
+				E6C29B281C36AC2D0059E033 /* ZSRBaseLoginViewController.m in Sources */,
 				E6B7F63D1C2ED76200357437 /* NSDate+XMPPDateTimeProfiles.m in Sources */,
 				E6B7F6711C2ED76200357437 /* DDXMLNode.m in Sources */,
 				E6B7F6011C2ED76200357437 /* XMPPMessage.m in Sources */,
