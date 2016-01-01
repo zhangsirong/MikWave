@@ -18,6 +18,8 @@
  */
 @interface AppDelegate ()<XMPPStreamDelegate>{
     XMPPStream *_xmppStream;
+    XMPPResultBlock _resultBlock;
+
 }
 
 // 1. 初始化XMPPStream
@@ -41,7 +43,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // 程序一启动就连接到主机
-    [self connectToHost];
+//    [self connectToHost];
     return YES;
 }
 
@@ -68,7 +70,9 @@
     // 设置登录用户JID
     //resource 标识用户登录的客户端 iphone android
     
-    XMPPJID *myJID = [XMPPJID jidWithUser:@"zhangsan" domain:@"rong.com" resource:@"iphone" ];
+      // 从沙盒获取用户名
+    NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"rong.com" resource:@"iphone" ];
     _xmppStream.myJID = myJID;
     
     // 设置服务器域名
@@ -90,7 +94,10 @@
 -(void)sendPwdToHost{
     NSLog(@"再发送密码授权");
     NSError *err = nil;
-    [_xmppStream authenticateWithPassword:@"123456" error:&err];
+     // 从沙盒里获取密码
+    NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
+    
+    [_xmppStream authenticateWithPassword:pwd error:&err];
     if (err) {
         NSLog(@"%@",err);
     }
@@ -118,6 +125,14 @@
 #pragma mark  与主机断开连接
 -(void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
     // 如果有错误，代表连接失败
+    
+    // 如果没有错误，表示正常的断开连接(人为断开连接)
+    
+    
+    if(error && _resultBlock){
+        _resultBlock(XMPPResultTypeNetErr);
+    }
+
     NSLog(@"与主机断开连接 %@",error);
     
 }
@@ -128,23 +143,51 @@
     NSLog(@"授权成功");
     
     [self sendOnlineToHost];
+    
+     // 回调控制器登录成功
+    if(_resultBlock){
+        _resultBlock(XMPPResultTypeLoginSuccess);
+    }
+
 }
 
 
 #pragma mark 授权失败
 -(void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error{
     NSLog(@"授权失败 %@",error);
+    
+        // 判断block有无值，再回调给登录控制器
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeLoginFailure);
+    }
 }
 
 
 #pragma mark -公共方法
--(void)logout{
+-(void)xmppUserlogout{
     // 1." 发送 "离线" 消息"
     XMPPPresence *offline = [XMPPPresence presenceWithType:@"unavailable"];
     [_xmppStream sendElement:offline];
-    
-    // 2. 与服务器断开连接
+     // 2. 与服务器断开连接
     [_xmppStream disconnect];
+    
+    // 3. 回到登录界面
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    
+    self.window.rootViewController = storyboard.instantiateInitialViewController;
+}
+
+-(void)xmppUserLogin:(XMPPResultBlock)resultBlock{
+    
+    // 先把block存起来
+    _resultBlock = resultBlock;
+    
+//    Domain=XMPPStreamErrorDomain Code=1 "Attempting to connect while already connected or connecting." UserInfo=0x7fd86bf06700 {NSLocalizedDescription=Attempting to connect while already connected or connecting.}
+    // 如果以前连接过服务，要断开
+    [_xmppStream disconnect];
+    
+    // 连接主机 成功后发送密码
+    [self connectToHost];
 }
 
 @end
