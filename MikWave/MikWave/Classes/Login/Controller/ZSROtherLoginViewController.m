@@ -46,13 +46,17 @@
      * 2.调用 AppDelegate的一个login 连接服务并登录
      */
     
-    NSString *user = self.userField.text;
-    NSString *pwd = self.pwdField.text;
+    //    NSString *user = self.userField.text;
+    //    NSString *pwd = self.pwdField.text;
+    //
+    //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //    [defaults setObject:user forKey:@"user"];
+    //    [defaults setObject:pwd forKey:@"pwd"];
+    //    [defaults synchronize];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:user forKey:@"user"];
-    [defaults setObject:pwd forKey:@"pwd"];
-    [defaults synchronize];
+    ZSRUserInfo *userInfo = [ZSRUserInfo sharedZSRUserInfo];
+    userInfo.user = self.userField.text;
+    userInfo.pwd = self.pwdField.text;
     
     //隐藏键盘
     [self.view endEditing:YES];
@@ -67,7 +71,6 @@
         [selfVc handleResultType:type];
     }];
 }
-
 
 -(void)handleResultType:(XMPPResultType)type{
     // 主线程刷新UI
@@ -93,6 +96,12 @@
 }
 
 -(void)enterMainPage{
+    // 更改用户的登录状态为YES
+    [ZSRUserInfo sharedZSRUserInfo].loginStatus = YES;
+    
+    // 把用户登录成功的数据，保存到沙盒
+    [[ZSRUserInfo sharedZSRUserInfo] saveUserInfoToSanbox];
+    
     // 隐藏模态窗口
     [self dismissViewControllerAnimated:NO completion:nil];
     

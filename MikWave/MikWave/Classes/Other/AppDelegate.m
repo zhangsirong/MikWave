@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "XMPPFramework.h"
+#import "ZSRNavigationController.h"
 /*
  * 在AppDelegate实现登录
  
@@ -42,8 +43,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // 程序一启动就连接到主机
-//    [self connectToHost];
+    // 设置导航栏背景
+    [ZSRNavigationController setupNavTheme];
+    
+    // 从沙里加载用户的数据到单例
+    [[ZSRUserInfo sharedZSRUserInfo] loadUserInfoFromSanbox];
+    
+    // 判断用户的登录状态，YES 直接来到主界面
+    if([ZSRUserInfo sharedZSRUserInfo].loginStatus){
+        UIStoryboard *storayobard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        self.window.rootViewController = storayobard.instantiateInitialViewController;
+        
+        // 自动登录服务
+        [self xmppUserLogin:nil];
+    }
+
     return YES;
 }
 
@@ -70,8 +84,8 @@
     // 设置登录用户JID
     //resource 标识用户登录的客户端 iphone android
     
-      // 从沙盒获取用户名
-    NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    // 从单例获取用户名
+    NSString *user = [ZSRUserInfo sharedZSRUserInfo].user;
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"rong.com" resource:@"iphone" ];
     _xmppStream.myJID = myJID;
     
@@ -94,8 +108,8 @@
 -(void)sendPwdToHost{
     NSLog(@"再发送密码授权");
     NSError *err = nil;
-     // 从沙盒里获取密码
-    NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
+    // 从单例里获取密码
+    NSString *pwd = [ZSRUserInfo sharedZSRUserInfo].pwd;
     
     [_xmppStream authenticateWithPassword:pwd error:&err];
     if (err) {
@@ -175,6 +189,10 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
     
     self.window.rootViewController = storyboard.instantiateInitialViewController;
+    //4.更新用户的登录状态
+    [ZSRUserInfo sharedZSRUserInfo].loginStatus = NO;
+    [[ZSRUserInfo sharedZSRUserInfo] saveUserInfoToSanbox];
+
 }
 
 -(void)xmppUserLogin:(XMPPResultBlock)resultBlock{

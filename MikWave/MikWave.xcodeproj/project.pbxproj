@@ -156,6 +156,9 @@
 		E6B7F6751C2ED77700357437 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B7F6741C2ED77700357437 /* libxml2.dylib */; };
 		E6B7F6771C2ED78100357437 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B7F6761C2ED78100357437 /* libresolv.dylib */; };
 		E6C29B121C36972E0059E033 /* ZSRMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C29B111C36972E0059E033 /* ZSRMeViewController.m */; };
+		E6C29B171C369C190059E033 /* ZSRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C29B161C369C190059E033 /* ZSRUserInfo.m */; };
+		E6C29B1F1C369E4E0059E033 /* ZSRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C29B1E1C369E4E0059E033 /* ZSRNavigationController.m */; };
+		E6C29B221C36A5590059E033 /* ZSRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C29B211C36A5590059E033 /* ZSRLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -473,6 +476,13 @@
 		E6B7F6791C2ED83D00357437 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		E6C29B101C36972E0059E033 /* ZSRMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRMeViewController.h; sourceTree = "<group>"; };
 		E6C29B111C36972E0059E033 /* ZSRMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRMeViewController.m; sourceTree = "<group>"; };
+		E6C29B151C369C190059E033 /* ZSRUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRUserInfo.h; sourceTree = "<group>"; };
+		E6C29B161C369C190059E033 /* ZSRUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRUserInfo.m; sourceTree = "<group>"; };
+		E6C29B1B1C369C8F0059E033 /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		E6C29B1D1C369E4E0059E033 /* ZSRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRNavigationController.h; sourceTree = "<group>"; };
+		E6C29B1E1C369E4E0059E033 /* ZSRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRNavigationController.m; sourceTree = "<group>"; };
+		E6C29B201C36A5590059E033 /* ZSRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRLoginViewController.h; sourceTree = "<group>"; };
+		E6C29B211C36A5590059E033 /* ZSRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -627,6 +637,7 @@
 		E6B7F4A31C2ED76100357437 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E6C29B131C369BC00059E033 /* Common */,
 				E65018CC1C33FA6300A5EA0A /* Login */,
 				E65018CD1C33FA6300A5EA0A /* Main */,
 				E65018CE1C33FA6300A5EA0A /* Other */,
@@ -1432,10 +1443,40 @@
 		E6B91E651C3412DA0058AE86 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E6C29B201C36A5590059E033 /* ZSRLoginViewController.h */,
+				E6C29B211C36A5590059E033 /* ZSRLoginViewController.m */,
 				E63707021C3413FA0063183F /* ZSROtherLoginViewController.h */,
 				E63707031C3413FA0063183F /* ZSROtherLoginViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E6C29B131C369BC00059E033 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E6C29B1C1C369DFB0059E033 /* Controllers */,
+				E6C29B141C369BC00059E033 /* Singleton */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E6C29B141C369BC00059E033 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				E6C29B1B1C369C8F0059E033 /* Singleton.h */,
+				E6C29B151C369C190059E033 /* ZSRUserInfo.h */,
+				E6C29B161C369C190059E033 /* ZSRUserInfo.m */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		E6C29B1C1C369DFB0059E033 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E6C29B1D1C369E4E0059E033 /* ZSRNavigationController.h */,
+				E6C29B1E1C369E4E0059E033 /* ZSRNavigationController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1543,6 +1584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C29B221C36A5590059E033 /* ZSRLoginViewController.m in Sources */,
 				E6B7F6581C2ED76200357437 /* XEP_0223.m in Sources */,
 				E6B7F6291C2ED76200357437 /* XMPPvCard.xcdatamodeld in Sources */,
 				E6B7F6021C2ED76200357437 /* XMPPModule.m in Sources */,
@@ -1570,12 +1612,14 @@
 				E65018D51C33FCAB00A5EA0A /* AppDelegate.m in Sources */,
 				E6B7F6251C2ED76200357437 /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
 				E6B7F2B51C2ED68100357437 /* ViewController.m in Sources */,
+				E6C29B1F1C369E4E0059E033 /* ZSRNavigationController.m in Sources */,
 				E6B7F6441C2ED76200357437 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
 				E6B7F62F1C2ED76200357437 /* XMPPvCardTempAdr.m in Sources */,
 				E6B7F6191C2ED76200357437 /* XMPPLastActivity.m in Sources */,
 				E6B7F6461C2ED76200357437 /* XMPPCapsResourceCoreDataStorageObject.m in Sources */,
 				E6B7F6101C2ED76200357437 /* XMPPResourceMemoryStorageObject.m in Sources */,
 				E6B7F6611C2ED76200357437 /* RFImageToDataTransformer.m in Sources */,
+				E6C29B171C369C190059E033 /* ZSRUserInfo.m in Sources */,
 				E6B7F6081C2ED76200357437 /* XMPPGoogleSharedStatus.m in Sources */,
 				E6B7F61F1C2ED76200357437 /* XMPPRoomHybrid.xcdatamodeld in Sources */,
 				E6B7F6131C2ED76200357437 /* XMPPRoster.m in Sources */,

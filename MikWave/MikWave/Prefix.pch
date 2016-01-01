@@ -14,5 +14,6 @@
 #import <UIKit/UIKit.h>
 #import "CategoryWF.h"
 #import "MBProgressHUD+ZSR.h"
+#import "ZSRUserInfo.h"
 #import <Foundation/Foundation.h>
 #endif
