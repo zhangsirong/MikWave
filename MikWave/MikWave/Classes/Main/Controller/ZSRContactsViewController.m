@@ -140,5 +140,10 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //选中表格进行聊天界面
+    [self performSegueWithIdentifier:@"ChatSegue" sender:nil];
+}
+
 
 @end

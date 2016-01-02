@@ -113,6 +113,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="aPR-Tf-Ehc" kind="show" identifier="ChatSegue" id="KCa-6D-icn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUu-NF-PaP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -631,7 +634,33 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giQ-zY-5k4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562" y="16"/>
+            <point key="canvasLocation" x="1562" y="-263"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="GZ3-Cn-6od">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="aPR-Tf-Ehc" customClass="ZSRChatViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qtc-Kf-BDB"/>
+                        <viewControllerLayoutGuide type="bottom" id="Shc-sM-fth"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qw8-RX-skE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GZv-or-wvY">
+                                <rect key="frame" x="0.0" y="470" width="600" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hyh-u7-wUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1536" y="409"/>
         </scene>
     </scenes>
     <resources>
