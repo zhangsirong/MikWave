@@ -15,5 +15,6 @@
 #import "CategoryWF.h"
 #import "MBProgressHUD+ZSR.h"
 #import "ZSRUserInfo.h"
+#import "ZSRXMPPTool.h"
 #import <Foundation/Foundation.h>
 #endif

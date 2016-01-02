@@ -18,6 +18,7 @@
 		E65018D01C33FAAE00A5EA0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65018CF1C33FAAE00A5EA0A /* Main.storyboard */; };
 		E65018D21C33FAE700A5EA0A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65018D11C33FAE700A5EA0A /* Login.storyboard */; };
 		E65018D51C33FCAB00A5EA0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E65018D41C33FCAB00A5EA0A /* AppDelegate.m */; };
+		E66088A21C3785400008A8A7 /* ZSRXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E66088A11C3785400008A8A7 /* ZSRXMPPTool.m */; };
 		E6872FD61C3531A700CD192F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6872FD21C3531A700CD192F /* MBProgressHUD.bundle */; };
 		E6872FD71C3531A700CD192F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E6872FD41C3531A700CD192F /* MBProgressHUD.m */; };
 		E6872FDA1C368FEE00CD192F /* MBProgressHUD+ZSR.m in Sources */ = {isa = PBXBuildFile; fileRef = E6872FD91C368FEE00CD192F /* MBProgressHUD+ZSR.m */; };
@@ -195,6 +196,8 @@
 		E65018D11C33FAE700A5EA0A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		E65018D31C33FCAB00A5EA0A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E65018D41C33FCAB00A5EA0A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E66088A01C3785400008A8A7 /* ZSRXMPPTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRXMPPTool.h; sourceTree = "<group>"; };
+		E66088A11C3785400008A8A7 /* ZSRXMPPTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRXMPPTool.m; sourceTree = "<group>"; };
 		E6872FD21C3531A700CD192F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		E6872FD31C3531A700CD192F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E6872FD41C3531A700CD192F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -1473,6 +1476,8 @@
 		E6C29B141C369BC00059E033 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
+				E66088A01C3785400008A8A7 /* ZSRXMPPTool.h */,
+				E66088A11C3785400008A8A7 /* ZSRXMPPTool.m */,
 				E6C29B1B1C369C8F0059E033 /* Singleton.h */,
 				E6C29B151C369C190059E033 /* ZSRUserInfo.h */,
 				E6C29B161C369C190059E033 /* ZSRUserInfo.m */,
@@ -1684,6 +1689,7 @@
 				E6B7F62A1C2ED76200357437 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				E6B7F61B1C2ED76200357437 /* XMPPRoom.xcdatamodeld in Sources */,
 				E6B7F66A1C2ED76200357437 /* DDTTYLogger.m in Sources */,
+				E66088A21C3785400008A8A7 /* ZSRXMPPTool.m in Sources */,
 				E6B7F6631C2ED76200357437 /* XMPPSRVResolver.m in Sources */,
 				E6872FDA1C368FEE00CD192F /* MBProgressHUD+ZSR.m in Sources */,
 				E6B7F6141C2ED76200357437 /* XMPPSystemInputActivityMonitor.m in Sources */,

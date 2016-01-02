@@ -22,7 +22,7 @@
      * 1.把用户名和密码放在ZSRUserInfo的单例
      
      
-     * 2.调用 AppDelegate的一个login 连接服务并登录
+     * 2.调用 ZSRXMPPTool的一个login 连接服务并登录
      */
     
     //隐藏键盘
@@ -31,11 +31,13 @@
     // 登录之前给个提示
     
     [MBProgressHUD showMessage:@"正在登录中..." toView:self.view];
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    app.registerOperation = NO;
+//    AppDelegate *app = [UIApplication sharedApplication].delegate;
+//    app.registerOperation = NO;
+    [ZSRXMPPTool sharedZSRXMPPTool].registerOperation = NO;
     __weak typeof(self) selfVc = self;
     
-    [app xmppUserLogin:^(XMPPResultType type) {
+//    [app xmppUserLogin:^(XMPPResultType type) {
+    [[ZSRXMPPTool sharedZSRXMPPTool] xmppUserLogin:^(XMPPResultType type) {
         [selfVc handleResultType:type];
     }];
 }

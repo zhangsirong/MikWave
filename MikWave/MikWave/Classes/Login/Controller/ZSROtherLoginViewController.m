@@ -43,7 +43,7 @@
      * 1.把用户名和密码放在ZSRUserInfo的单例
      
      
-     * 2.调用 AppDelegate的一个login 连接服务并登录
+     * 2.调用 ZSRXMPPTool的一个login 连接服务并登录
      */
     
     ZSRUserInfo *userInfo = [ZSRUserInfo sharedZSRUserInfo];

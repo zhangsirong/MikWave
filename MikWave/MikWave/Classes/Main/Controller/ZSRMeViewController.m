@@ -18,8 +18,8 @@
 - (IBAction)logoutBtnClick:(id)sender {
     
     //直接调用 appdelegate的注销方法
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    
-    [app xmppUserlogout];
+//    AppDelegate *app = [UIApplication sharedApplication].delegate;
+//    [app xmppUserlogout];
+    [[ZSRXMPPTool sharedZSRXMPPTool] xmppUserlogout];
 }
 @end
