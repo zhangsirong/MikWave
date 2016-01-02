@@ -18,6 +18,11 @@
 @interface ZSRXMPPTool ()<XMPPStreamDelegate>{
     XMPPStream *_xmppStream;
     XMPPResultBlock _resultBlock;
+    
+    XMPPvCardCoreDataStorage *_vCardStorage;//电子名片的数据存储
+    
+    XMPPvCardAvatarModule *_avatar;//头像模块
+    XMPPReconnect *_reconnect;// 自动连接模块
 }
 // 1. 初始化XMPPStream
 -(void)setupXMPPStream;
@@ -42,9 +47,47 @@ singleton_implementation(ZSRXMPPTool)
 -(void)setupXMPPStream{
     
     _xmppStream = [[XMPPStream alloc] init];
+#warning 每一个模块添加后都要激活
+    //添加自动连接模块
+    _reconnect = [[XMPPReconnect alloc] init];
+    [_reconnect activate:_xmppStream];
+    
+    //添加电子名片模块
+    _vCardStorage = [XMPPvCardCoreDataStorage sharedInstance];
+    _vCard = [[XMPPvCardTempModule alloc] initWithvCardStorage:_vCardStorage];
+    
+    //激活
+    [_vCard activate:_xmppStream];
+    
+    //添加头像模块
+    _avatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:_vCard];
+    [_avatar activate:_xmppStream];
     
     // 设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+}
+
+#pragma mark 释放xmppStream相关的资源
+-(void)teardownXmpp{
+    
+    // 移除代理
+    [_xmppStream removeDelegate:self];
+    
+    // 停止模块
+    [_reconnect deactivate];
+    [_vCard deactivate];
+    [_avatar deactivate];
+    
+    // 断开连接
+    [_xmppStream disconnect];
+    
+    // 清空资源
+    _reconnect = nil;
+    _vCard = nil;
+    _vCardStorage = nil;
+    _avatar = nil;
+    _xmppStream = nil;
+
 }
 
 #pragma mark 连接到服务器
@@ -217,5 +260,9 @@ singleton_implementation(ZSRXMPPTool)
     
     // 连接主机 成功后发送注册密码
     [self connectToHost];
+}
+
+-(void)dealloc{
+    [self teardownXmpp];
 }
 @end
