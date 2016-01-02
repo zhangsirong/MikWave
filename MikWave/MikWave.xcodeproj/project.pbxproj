@@ -20,6 +20,7 @@
 		E65018D51C33FCAB00A5EA0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E65018D41C33FCAB00A5EA0A /* AppDelegate.m */; };
 		E66088A21C3785400008A8A7 /* ZSRXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E66088A11C3785400008A8A7 /* ZSRXMPPTool.m */; };
 		E66088A71C378E7D0008A8A7 /* ZSRProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E66088A61C378E7D0008A8A7 /* ZSRProfileViewController.m */; };
+		E66088AA1C37957B0008A8A7 /* ZSREditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E66088A91C37957B0008A8A7 /* ZSREditProfileViewController.m */; };
 		E6872FD61C3531A700CD192F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6872FD21C3531A700CD192F /* MBProgressHUD.bundle */; };
 		E6872FD71C3531A700CD192F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E6872FD41C3531A700CD192F /* MBProgressHUD.m */; };
 		E6872FDA1C368FEE00CD192F /* MBProgressHUD+ZSR.m in Sources */ = {isa = PBXBuildFile; fileRef = E6872FD91C368FEE00CD192F /* MBProgressHUD+ZSR.m */; };
@@ -201,6 +202,8 @@
 		E66088A11C3785400008A8A7 /* ZSRXMPPTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRXMPPTool.m; sourceTree = "<group>"; };
 		E66088A51C378E7D0008A8A7 /* ZSRProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRProfileViewController.h; sourceTree = "<group>"; };
 		E66088A61C378E7D0008A8A7 /* ZSRProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRProfileViewController.m; sourceTree = "<group>"; };
+		E66088A81C37957B0008A8A7 /* ZSREditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSREditProfileViewController.h; sourceTree = "<group>"; };
+		E66088A91C37957B0008A8A7 /* ZSREditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSREditProfileViewController.m; sourceTree = "<group>"; };
 		E6872FD21C3531A700CD192F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		E6872FD31C3531A700CD192F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E6872FD41C3531A700CD192F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -580,6 +583,8 @@
 		E6872FDD1C3696CF00CD192F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E66088A81C37957B0008A8A7 /* ZSREditProfileViewController.h */,
+				E66088A91C37957B0008A8A7 /* ZSREditProfileViewController.m */,
 				E66088A51C378E7D0008A8A7 /* ZSRProfileViewController.h */,
 				E66088A61C378E7D0008A8A7 /* ZSRProfileViewController.m */,
 				E6C29B101C36972E0059E033 /* ZSRMeViewController.h */,
@@ -1674,6 +1679,7 @@
 				E6B7F65A1C2ED76200357437 /* XMPPMessage+XEP_0224.m in Sources */,
 				E6B7F5F51C2ED76200357437 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
 				E6B7F64E1C2ED76200357437 /* XMPPMessage+XEP_0172.m in Sources */,
+				E66088AA1C37957B0008A8A7 /* ZSREditProfileViewController.m in Sources */,
 				E6B7F6351C2ED76200357437 /* XMPPvCardTempTel.m in Sources */,
 				E6B7F6401C2ED76200357437 /* XMPPSoftwareVersion.m in Sources */,
 				E6B7F5F71C2ED76200357437 /* XMPPDigestMD5Authentication.m in Sources */,

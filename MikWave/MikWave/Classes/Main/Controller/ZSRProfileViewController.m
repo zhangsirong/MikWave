@@ -8,8 +8,8 @@
 
 #import "ZSRProfileViewController.h"
 #import "XMPPvCardTemp.h"
-
-@interface ZSRProfileViewController()<UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+#import "ZSREditProfileViewController.h"
+@interface ZSRProfileViewController()<UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate, ZSREditProfileViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *haedView;//头像
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;//昵称
 
@@ -93,10 +93,21 @@
         
     }else{//跳到下一个控制器
         NSLog(@"跳到下一个控制器");
+    [self performSegueWithIdentifier:@"EditVCardSegue" sender:cell];
         
     }
     
     
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //获取编辑个人信息的控制
+    id destVc = segue.destinationViewController; 
+    if ([destVc isKindOfClass:[ZSREditProfileViewController class]]) {
+        ZSREditProfileViewController *editVc = destVc;
+        editVc.cell = sender;
+        editVc.delegate = self;
+    }
 }
 
 #pragma mark actionsheet的代理
@@ -138,4 +149,43 @@
     // 隐藏当前模态窗口
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark 编辑个人信息的控制器代理
+-(void)editProfileViewControllerDidSave{
+    // 保存
+    //获取当前的电子名片信息
+    XMPPvCardTemp *myvCard = [ZSRXMPPTool sharedZSRXMPPTool].vCard.myvCardTemp;
+    
+    // 图片
+    myvCard.photo = UIImagePNGRepresentation(self.haedView.image);
+    
+    // 昵称
+    myvCard.nickname = self.nicknameLabel.text;
+    
+    // 公司
+    myvCard.orgName = self.orgnameLabel.text;
+    
+    // 部门
+    if (self.orgunitLabel.text.length > 0) {
+        myvCard.orgUnits = @[self.orgunitLabel.text];
+    }
+    
+    
+    // 职位
+    myvCard.title = self.titleLabel.text;
+    
+    
+    // 电话
+    myvCard.note =  self.phoneLabel.text;
+    
+    // 邮件
+    myvCard.mailer = self.emailLabel.text;
+    
+    
+    //更新 这个方法内部会实现数据上传到服务，无需程序自己操作
+    [[ZSRXMPPTool sharedZSRXMPPTool].vCard updateMyvCardTemp:myvCard];
+    
+    
+}
+
 @end
