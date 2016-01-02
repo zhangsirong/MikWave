@@ -58,17 +58,17 @@
             </objects>
             <point key="canvasLocation" x="880" y="-736"/>
         </scene>
-        <!--Root View Controller-->
+        <!--通讯录-->
         <scene sceneID="xmK-4j-ekh">
             <objects>
-                <tableViewController id="oEZ-h5-U57" sceneMemberID="viewController">
+                <tableViewController id="oEZ-h5-U57" customClass="ZSRContactsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aEw-kU-3bS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9ei-pX-QT0">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" id="9ei-pX-QT0">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9ei-pX-QT0" id="dxh-sI-IbK">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -82,7 +82,7 @@
                             <outlet property="delegate" destination="oEZ-h5-U57" id="Zue-zH-UDl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="xlG-zZ-VXc"/>
+                    <navigationItem key="navigationItem" title="通讯录" id="xlG-zZ-VXc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUu-NF-PaP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,7 +158,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <segue destination="xYi-Q5-1gs" kind="show" id="1FF-m8-3RV"/>
+                                            <segue destination="xYi-Q5-1gs" kind="show" identifier="EditVCardSegue" id="1FF-m8-3RV"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -197,7 +197,7 @@
         <!--Profile View Controller-->
         <scene sceneID="4qY-VD-dGk">
             <objects>
-                <tableViewController id="xYi-Q5-1gs" customClass="ZSRProfileViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="xYi-Q5-1gs" customClass="ZSRProfileViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="O2S-kz-7Tb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,9 +234,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <connections>
-                                            <segue destination="Uky-fE-ucP" kind="show" identifier="EditVCardSegue" id="AKp-sN-LCI"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ju1-02-bT6" detailTextLabel="OOx-wt-U6P" style="IBUITableViewCellStyleValue1" id="ZAZ-s4-bO6">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -427,6 +424,7 @@
                         <outlet property="phoneLabel" destination="V0N-z0-sqX" id="Cpp-WW-rNv"/>
                         <outlet property="titleLabel" destination="ISw-AM-yZM" id="7Y1-Wb-Xhl"/>
                         <outlet property="weixinNumLabel" destination="ohq-Yk-43b" id="EL0-0D-VH4"/>
+                        <segue destination="Hl5-88-Zte" kind="show" identifier="EditVCardSegue" id="bjb-Nl-CiB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8KU-cw-cnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -434,23 +432,23 @@
             <point key="canvasLocation" x="1658" y="1691"/>
         </scene>
         <!--编辑电子名片-->
-        <scene sceneID="stL-wS-Yu2">
+        <scene sceneID="Zmm-Is-Y8H">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="Uky-fE-ucP" userLabel="编辑电子名片" customClass="ZSREditProfileViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HJk-i7-Rvl">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="Hl5-88-Zte" userLabel="编辑电子名片" customClass="ZSREditProfileViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="mZH-6k-Xx3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection id="iWj-4p-nlv">
+                            <tableViewSection id="y2Y-xK-BNH">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="fpU-UU-si1">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="38u-f2-FhH">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpU-UU-si1" id="d8p-3X-L65">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="38u-f2-FhH" id="VJn-Fp-KEK">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CI0-HH-GSM">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j7V-Er-JFb">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -459,10 +457,10 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="CI0-HH-GSM" secondAttribute="trailing" id="Qvk-Ca-JkX"/>
-                                                <constraint firstAttribute="bottom" secondItem="CI0-HH-GSM" secondAttribute="bottom" id="TsO-9m-S0y"/>
-                                                <constraint firstItem="CI0-HH-GSM" firstAttribute="leading" secondItem="d8p-3X-L65" secondAttribute="leading" id="bjW-yc-NDU"/>
-                                                <constraint firstItem="CI0-HH-GSM" firstAttribute="top" secondItem="d8p-3X-L65" secondAttribute="top" id="kTF-If-KM3"/>
+                                                <constraint firstAttribute="trailing" secondItem="j7V-Er-JFb" secondAttribute="trailing" id="9bo-rY-ioH"/>
+                                                <constraint firstItem="j7V-Er-JFb" firstAttribute="top" secondItem="VJn-Fp-KEK" secondAttribute="top" id="cCY-L7-Zp6"/>
+                                                <constraint firstAttribute="bottom" secondItem="j7V-Er-JFb" secondAttribute="bottom" id="o2P-6N-L8U"/>
+                                                <constraint firstItem="j7V-Er-JFb" firstAttribute="leading" secondItem="VJn-Fp-KEK" secondAttribute="leading" id="tG8-Ji-Ap0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
@@ -471,17 +469,17 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="Uky-fE-ucP" id="Bhm-6g-KtC"/>
-                            <outlet property="delegate" destination="Uky-fE-ucP" id="h73-Au-SDs"/>
+                            <outlet property="dataSource" destination="Hl5-88-Zte" id="J2S-mX-y7V"/>
+                            <outlet property="delegate" destination="Hl5-88-Zte" id="NhP-Ev-Kgb"/>
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="textField" destination="CI0-HH-GSM" id="yQc-Jd-Cmu"/>
+                        <outlet property="textField" destination="j7V-Er-JFb" id="5hO-66-eTf"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pmG-ao-Qrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UVw-pt-YfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2337" y="1680"/>
+            <point key="canvasLocation" x="2440" y="1689"/>
         </scene>
         <!--我-->
         <scene sceneID="m3l-UW-a3j">

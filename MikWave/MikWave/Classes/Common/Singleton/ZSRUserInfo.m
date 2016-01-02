@@ -12,6 +12,8 @@
 #define LoginStatusKey @"LoginStatus"
 #define PwdKey @"pwd"
 
+static NSString *domain = @"rong.com";
+
 @implementation ZSRUserInfo
 
 singleton_implementation(ZSRUserInfo)
@@ -31,6 +33,10 @@ singleton_implementation(ZSRUserInfo)
     self.user = [defaults objectForKey:UserKey];
     self.loginStatus = [defaults boolForKey:LoginStatusKey];
     self.pwd = [defaults objectForKey:PwdKey];
+}
+
+-(NSString *)jid{
+    return [NSString stringWithFormat:@"%@@%@",self.user,domain];
 }
 
 @end

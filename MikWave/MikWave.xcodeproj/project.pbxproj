@@ -15,12 +15,13 @@
 		E63707161C3417700063183F /* UIStoryboard+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = E637070E1C3417700063183F /* UIStoryboard+WF.m */; };
 		E63707171C3417700063183F /* UITextField+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = E63707101C3417700063183F /* UITextField+WF.m */; };
 		E63707181C3417700063183F /* UIView+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = E63707121C3417700063183F /* UIView+WF.m */; };
-		E65018D01C33FAAE00A5EA0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65018CF1C33FAAE00A5EA0A /* Main.storyboard */; };
 		E65018D21C33FAE700A5EA0A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65018D11C33FAE700A5EA0A /* Login.storyboard */; };
 		E65018D51C33FCAB00A5EA0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E65018D41C33FCAB00A5EA0A /* AppDelegate.m */; };
 		E66088A21C3785400008A8A7 /* ZSRXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E66088A11C3785400008A8A7 /* ZSRXMPPTool.m */; };
 		E66088A71C378E7D0008A8A7 /* ZSRProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E66088A61C378E7D0008A8A7 /* ZSRProfileViewController.m */; };
 		E66088AA1C37957B0008A8A7 /* ZSREditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E66088A91C37957B0008A8A7 /* ZSREditProfileViewController.m */; };
+		E66088B01C37A16F0008A8A7 /* ZSRContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E66088AF1C37A16F0008A8A7 /* ZSRContactsViewController.m */; };
+		E66088B21C37AD0B0008A8A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E66088B11C37AD0B0008A8A7 /* Main.storyboard */; };
 		E6872FD61C3531A700CD192F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6872FD21C3531A700CD192F /* MBProgressHUD.bundle */; };
 		E6872FD71C3531A700CD192F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E6872FD41C3531A700CD192F /* MBProgressHUD.m */; };
 		E6872FDA1C368FEE00CD192F /* MBProgressHUD+ZSR.m in Sources */ = {isa = PBXBuildFile; fileRef = E6872FD91C368FEE00CD192F /* MBProgressHUD+ZSR.m */; };
@@ -194,7 +195,6 @@
 		E63707101C3417700063183F /* UITextField+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WF.m"; sourceTree = "<group>"; };
 		E63707111C3417700063183F /* UIView+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WF.h"; sourceTree = "<group>"; };
 		E63707121C3417700063183F /* UIView+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WF.m"; sourceTree = "<group>"; };
-		E65018CF1C33FAAE00A5EA0A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E65018D11C33FAE700A5EA0A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		E65018D31C33FCAB00A5EA0A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E65018D41C33FCAB00A5EA0A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -204,6 +204,9 @@
 		E66088A61C378E7D0008A8A7 /* ZSRProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRProfileViewController.m; sourceTree = "<group>"; };
 		E66088A81C37957B0008A8A7 /* ZSREditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSREditProfileViewController.h; sourceTree = "<group>"; };
 		E66088A91C37957B0008A8A7 /* ZSREditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSREditProfileViewController.m; sourceTree = "<group>"; };
+		E66088AE1C37A16F0008A8A7 /* ZSRContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRContactsViewController.h; sourceTree = "<group>"; };
+		E66088AF1C37A16F0008A8A7 /* ZSRContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRContactsViewController.m; sourceTree = "<group>"; };
+		E66088B11C37AD0B0008A8A7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E6872FD21C3531A700CD192F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		E6872FD31C3531A700CD192F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E6872FD41C3531A700CD192F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -554,7 +557,7 @@
 			isa = PBXGroup;
 			children = (
 				E6872FDD1C3696CF00CD192F /* Controller */,
-				E65018CF1C33FAAE00A5EA0A /* Main.storyboard */,
+				E66088B11C37AD0B0008A8A7 /* Main.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -583,6 +586,8 @@
 		E6872FDD1C3696CF00CD192F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E66088AE1C37A16F0008A8A7 /* ZSRContactsViewController.h */,
+				E66088AF1C37A16F0008A8A7 /* ZSRContactsViewController.m */,
 				E66088A81C37957B0008A8A7 /* ZSREditProfileViewController.h */,
 				E66088A91C37957B0008A8A7 /* ZSREditProfileViewController.m */,
 				E66088A51C378E7D0008A8A7 /* ZSRProfileViewController.h */,
@@ -1585,8 +1590,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E66088B21C37AD0B0008A8A7 /* Main.storyboard in Resources */,
 				E6B7F6721C2ED76200357437 /* build-libidn.sh in Resources */,
-				E65018D01C33FAAE00A5EA0A /* Main.storyboard in Resources */,
 				E65018D21C33FAE700A5EA0A /* Login.storyboard in Resources */,
 				E6B7F2BD1C2ED68100357437 /* LaunchScreen.xib in Resources */,
 				E6B7F66D1C2ED76200357437 /* README.txt in Resources */,
@@ -1710,6 +1715,7 @@
 				E6B7F6301C2ED76200357437 /* XMPPvCardTempAdrTypes.m in Sources */,
 				E6B7F61C1C2ED76200357437 /* XMPPRoomCoreDataStorage.m in Sources */,
 				E6B7F6421C2ED76200357437 /* NSString+XEP_0106.m in Sources */,
+				E66088B01C37A16F0008A8A7 /* ZSRContactsViewController.m in Sources */,
 				E6B7F6271C2ED76200357437 /* XMPPMUC.m in Sources */,
 				E63707041C3413FA0063183F /* ZSROtherLoginViewController.m in Sources */,
 				E6B7F6071C2ED76200357437 /* XMPPCoreDataStorage.m in Sources */,
