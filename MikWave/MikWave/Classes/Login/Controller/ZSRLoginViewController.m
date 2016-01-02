@@ -7,8 +7,9 @@
 //
 
 #import "ZSRLoginViewController.h"
-
-@interface ZSRLoginViewController ()
+#import "ZSRRegisgerViewController.h"
+#import "ZSRNavigationController.h"
+@interface ZSRLoginViewController ()<ZSRRegisgerViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UITextField *pwdField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
@@ -47,5 +48,32 @@
     
     // 调用父类的登录
     [super login];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    // 获取注册控制器
+    id destVc = segue.destinationViewController;
+    
+    
+    if ([destVc isKindOfClass:[ZSRNavigationController class]]) {
+        ZSRNavigationController *nav = destVc;
+        //获取根控制器
+        ZSRRegisgerViewController *registerVc =  (ZSRRegisgerViewController *)nav.topViewController;
+        // 设置注册控制器的代理
+        registerVc.delegate = self;
+    }
+    
+}
+
+#pragma mark regisgerViewController的代理
+-(void)regisgerViewControllerDidFinishRegister{
+    NSLog(@"完成注册");
+    // 完成注册 userLabel显示注册的用户名
+    self.userLabel.text = [ZSRUserInfo sharedZSRUserInfo].registerUser;
+    
+    // 提示
+    [MBProgressHUD showSuccess:@"请重新输入密码进行登录" toView:self.view];
+    
+    
 }
 @end

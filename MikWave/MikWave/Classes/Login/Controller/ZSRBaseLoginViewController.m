@@ -32,7 +32,7 @@
     
     [MBProgressHUD showMessage:@"正在登录中..." toView:self.view];
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    
+    app.registerOperation = NO;
     __weak typeof(self) selfVc = self;
     
     [app xmppUserLogin:^(XMPPResultType type) {

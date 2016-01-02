@@ -85,7 +85,12 @@
     //resource 标识用户登录的客户端 iphone android
     
     // 从单例获取用户名
-    NSString *user = [ZSRUserInfo sharedZSRUserInfo].user;
+    NSString *user = nil;
+    if (self.isRegisterOperation) {
+        user = [ZSRUserInfo sharedZSRUserInfo].registerUser;
+    }else{
+        user = [ZSRUserInfo sharedZSRUserInfo].user;
+    }
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"rong.com" resource:@"iphone" ];
     _xmppStream.myJID = myJID;
     
@@ -132,9 +137,13 @@
 #pragma mark 与主机连接成功
 -(void)xmppStreamDidConnect:(XMPPStream *)sender{
     NSLog(@"与主机连接成功");
-    
-    // 主机连接成功后，发送密码进行授权
-    [self sendPwdToHost];
+    if (self.isRegisterOperation) {//注册操作，发送注册的密码
+        NSString *pwd = [ZSRUserInfo sharedZSRUserInfo].registerPwd;
+        [_xmppStream registerWithPassword:pwd error:nil];
+    }else{//登录操作
+        // 主机连接成功后，发送密码进行授权
+        [self sendPwdToHost];
+    }
 }
 #pragma mark  与主机断开连接
 -(void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
@@ -176,7 +185,24 @@
     }
 }
 
+#pragma mark 注册成功
+-(void)xmppStreamDidRegister:(XMPPStream *)sender{
+    NSLog(@"注册成功");
+    if(_resultBlock){
+        _resultBlock(XMPPResultTypeRegisterSuccess);
+    }
 
+}
+
+#pragma mark 注册失败
+-(void)xmppStream:(XMPPStream *)sender didNotRegister:(DDXMLElement *)error{
+    
+    NSLog(@"注册失败 %@",error);
+    if(_resultBlock){
+        _resultBlock(XMPPResultTypeRegisterFailure);
+    }
+
+}
 #pragma mark -公共方法
 -(void)xmppUserlogout{
     // 1." 发送 "离线" 消息"
@@ -199,12 +225,22 @@
     
     // 先把block存起来
     _resultBlock = resultBlock;
-    
-//    Domain=XMPPStreamErrorDomain Code=1 "Attempting to connect while already connected or connecting." UserInfo=0x7fd86bf06700 {NSLocalizedDescription=Attempting to connect while already connected or connecting.}
+
     // 如果以前连接过服务，要断开
     [_xmppStream disconnect];
     
     // 连接主机 成功后发送密码
+    [self connectToHost];
+}
+
+-(void)xmppUserRegister:(XMPPResultBlock)resultBlock{
+    // 先把block存起来
+    _resultBlock = resultBlock;
+    
+    // 如果以前连接过服务，要断开
+    [_xmppStream disconnect];
+    
+    // 连接主机 成功后发送注册密码
     [self connectToHost];
 }
 
