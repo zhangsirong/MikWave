@@ -18,14 +18,16 @@
 @interface ZSRXMPPTool ()<XMPPStreamDelegate>{
     XMPPStream *_xmppStream;
     XMPPResultBlock _resultBlock;
+    XMPPReconnect *_reconnect;// 自动连接模块
     
     XMPPvCardCoreDataStorage *_vCardStorage;//电子名片的数据存储
     
     XMPPvCardAvatarModule *_avatar;//头像模块
     
-     XMPPRoster *_roster;//花名册模块
-    
-    XMPPReconnect *_reconnect;// 自动连接模块
+    XMPPRoster *_roster;//花名册模块
+    XMPPMessageArchiving *_msgArchiving;//聊天模块
+    XMPPMessageArchivingCoreDataStorage *_msgStorage;//聊天的数据存储
+
 }
 // 1. 初始化XMPPStream
 -(void)setupXMPPStream;
@@ -70,6 +72,11 @@ singleton_implementation(ZSRXMPPTool)
     _rosterStorage = [[XMPPRosterCoreDataStorage alloc] init];
     _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterStorage];
     [_roster activate:_xmppStream];
+    
+    // 添加聊天模块
+    _msgStorage = [[XMPPMessageArchivingCoreDataStorage alloc] init];
+    _msgArchiving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:_msgStorage];
+    [_msgArchiving activate:_xmppStream];
     // 设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
 }
@@ -85,6 +92,7 @@ singleton_implementation(ZSRXMPPTool)
     [_vCard deactivate];
     [_avatar deactivate];
     [_roster deactivate];
+    [_msgArchiving deactivate];
     // 断开连接
     [_xmppStream disconnect];
     
@@ -94,6 +102,8 @@ singleton_implementation(ZSRXMPPTool)
     _vCardStorage = nil;
     _avatar = nil;
     _roster = nil;
+    _msgArchiving = nil;
+    _msgStorage = nil;
     _xmppStream = nil;
 
 }

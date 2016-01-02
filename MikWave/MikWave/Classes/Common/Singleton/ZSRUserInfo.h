@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Singleton.h"
+static NSString *domain = @"rong.com";
+
 @interface ZSRUserInfo : NSObject
 singleton_interface(ZSRUserInfo);
 

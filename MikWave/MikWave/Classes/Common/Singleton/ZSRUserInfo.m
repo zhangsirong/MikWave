@@ -12,7 +12,7 @@
 #define LoginStatusKey @"LoginStatus"
 #define PwdKey @"pwd"
 
-static NSString *domain = @"rong.com";
+
 
 @implementation ZSRUserInfo
 

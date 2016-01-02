@@ -98,7 +98,21 @@
                             <outlet property="delegate" destination="oEZ-h5-U57" id="Zue-zH-UDl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="通讯录" id="xlG-zZ-VXc"/>
+                    <navigationItem key="navigationItem" title="通讯录" id="xlG-zZ-VXc">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="bEd-sD-6p3">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e7W-xK-mcF">
+                                <rect key="frame" x="451" y="7" width="28" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" image="contacts_add_friend">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tnJ-Pn-tvX" kind="show" id="GHp-fm-U1t"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUu-NF-PaP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -569,9 +583,60 @@
             </objects>
             <point key="canvasLocation" x="-60" y="-744"/>
         </scene>
+        <!--Add Contact View Controller-->
+        <scene sceneID="GxM-fk-vLz">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="tnJ-Pn-tvX" customClass="ZSRAddContactViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="KZu-hF-Aan">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="ChC-o9-9Yp">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="ZY2-jr-GGU">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZY2-jr-GGU" id="vbK-MU-AVt">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8xT-qD-4df">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="tnJ-Pn-tvX" id="7uI-fQ-WYt"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="8xT-qD-4df" firstAttribute="leading" secondItem="vbK-MU-AVt" secondAttribute="leading" id="85g-X8-aLY"/>
+                                                <constraint firstItem="8xT-qD-4df" firstAttribute="top" secondItem="vbK-MU-AVt" secondAttribute="top" id="BDN-i3-Rvj"/>
+                                                <constraint firstAttribute="bottom" secondItem="8xT-qD-4df" secondAttribute="bottom" id="EyO-MT-0cu"/>
+                                                <constraint firstAttribute="trailing" secondItem="8xT-qD-4df" secondAttribute="trailing" id="vvH-jm-Epg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="tnJ-Pn-tvX" id="Rmr-jo-PWz"/>
+                            <outlet property="delegate" destination="tnJ-Pn-tvX" id="Prj-M1-ble"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="giQ-zY-5k4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1562" y="16"/>
+        </scene>
     </scenes>
     <resources>
         <image name="DefaultHead" width="46" height="46"/>
+        <image name="contacts_add_friend" width="28" height="30"/>
         <image name="tabbar_contacts" width="27" height="23"/>
         <image name="tabbar_discover" width="23" height="23"/>
         <image name="tabbar_mainframe" width="25" height="23"/>
