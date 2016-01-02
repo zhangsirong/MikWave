@@ -121,7 +121,7 @@
         <!--我-->
         <scene sceneID="8BA-nj-vVj">
             <objects>
-                <tableViewController id="Wyk-Gb-Lek" customClass="ZSRMeViewController" sceneMemberID="viewController">
+                <tableViewController id="Wyk-Gb-Lek" customClass="WCMeViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="tfy-2o-1BE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,7 +197,7 @@
         <!--Profile View Controller-->
         <scene sceneID="4qY-VD-dGk">
             <objects>
-                <tableViewController id="xYi-Q5-1gs" customClass="ZSRProfileViewController" sceneMemberID="viewController">
+                <tableViewController id="xYi-Q5-1gs" customClass="WCProfileViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="O2S-kz-7Tb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

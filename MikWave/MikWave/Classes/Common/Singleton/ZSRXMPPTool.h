@@ -20,6 +20,11 @@ typedef void (^XMPPResultBlock)(XMPPResultType type);// XMPP请求结果的block
 
 @interface ZSRXMPPTool : NSObject
 singleton_interface(ZSRXMPPTool);
+
+/**
+ *  //电子名片
+ */
+@property (nonatomic, strong) XMPPvCardTempModule *vCard;
 /**
  *  注册标识 YES 注册 / NO 登录
  */
