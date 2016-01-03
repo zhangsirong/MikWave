@@ -9,7 +9,7 @@
 #import "ZSRChatViewController.h"
 #import "ZSRInputView.h"
 
-@interface ZSRChatViewController ()<UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>{
+@interface ZSRChatViewController ()<UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate, UITextViewDelegate>{
     
     NSFetchedResultsController *_resultsContr;
     
@@ -34,6 +34,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     // 加载数据
     [self loadMsgs];
+    [self scrollToTableBottom];
     
 }
 
@@ -53,6 +54,8 @@
     }
     
     self.inputViewConstraint.constant = kbHeight;
+    //表格滚动到底部
+    [self scrollToTableBottom];
     
     
 }
@@ -94,6 +97,8 @@
     // 创建输入框View
     ZSRInputView *inputView = [ZSRInputView inputView];
     inputView.translatesAutoresizingMaskIntoConstraints = NO;
+    // 设置TextView代理
+    inputView.textView.delegate = self;
     [self.view addSubview:inputView];
     
     // 自动布局
@@ -142,10 +147,13 @@
     _resultsContr = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
     
     NSError *err = nil;
-    [_resultsContr performFetch:&err];
+
     
     // 代理
     _resultsContr.delegate = self;
+    [_resultsContr performFetch:&err];
+    
+    NSLog(@"%@",_resultsContr.fetchedObjects);
     if (err) {
         NSLog(@"%@",err);
     }
@@ -168,9 +176,11 @@
     XMPPMessageArchiving_Message_CoreDataObject *msg =  _resultsContr.fetchedObjects[indexPath.row];
     
     //显示消息
-    cell.textLabel.text = msg.body;
-    
-    
+    if ([msg.outgoing boolValue]) {//自己发
+        cell.textLabel.text = [NSString stringWithFormat:@"Me: %@",msg.body];
+    }else{//别人发的
+        cell.textLabel.text = [NSString stringWithFormat:@"Other: %@",msg.body];
+    }
     return cell;
 }
 
@@ -179,6 +189,44 @@
 -(void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
     // 刷新数据
     [self.tableView reloadData];
+    [self scrollToTableBottom];
+}
+
+#pragma mark TextView的代理
+-(void)textViewDidChange:(UITextView *)textView{
+    NSString *text = textView.text;
+    // 换行就等于点击了的send
+    if ([text rangeOfString:@"\n"].length != 0) {
+        NSLog(@"发送数据 %@",text);
+        [self sendMsgWithText:text];
+        //清空数据
+        textView.text = nil;
+        
+    }else{
+        NSLog(@"%@",textView.text);
+        
+    }
+}
+
+
+#pragma mark 发送聊天消息
+-(void)sendMsgWithText:(NSString *)text{
+    
+    XMPPMessage *msg = [XMPPMessage messageWithType:@"chat" to:self.friendJid];
+    
+    
+    // 设置内容
+    [msg addBody:text];
+    NSLog(@"%@",msg);
+    [[ZSRXMPPTool sharedZSRXMPPTool].xmppStream sendElement:msg];
+}
+
+#pragma mark 滚动到底部
+-(void)scrollToTableBottom{
+    NSInteger lastRow = _resultsContr.fetchedObjects.count - 1;
+    NSIndexPath *lastPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    
+    [self.tableView scrollToRowAtIndexPath:lastPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 @end
