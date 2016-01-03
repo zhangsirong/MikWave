@@ -26,7 +26,6 @@
     
     XMPPRoster *_roster;//花名册模块
     XMPPMessageArchiving *_msgArchiving;//聊天模块
-    XMPPMessageArchivingCoreDataStorage *_msgStorage;//聊天的数据存储
 
 }
 // 1. 初始化XMPPStream

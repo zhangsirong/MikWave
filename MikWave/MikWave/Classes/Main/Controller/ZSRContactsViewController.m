@@ -7,7 +7,7 @@
 //
 
 #import "ZSRContactsViewController.h"
-
+#import "ZSRChatViewController.h"
 @interface ZSRContactsViewController()<NSFetchedResultsControllerDelegate>{
     NSFetchedResultsController *_resultsContrl;
 }
@@ -141,9 +141,18 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //获取好友
+    XMPPUserCoreDataStorageObject *friend = _resultsContrl.fetchedObjects[indexPath.row];
     //选中表格进行聊天界面
-    [self performSegueWithIdentifier:@"ChatSegue" sender:nil];
+    [self performSegueWithIdentifier:@"ChatSegue" sender:friend.jid];
 }
-
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    id destVc = segue.destinationViewController;
+    
+    if ([destVc isKindOfClass:[ZSRChatViewController class]]) {
+        ZSRChatViewController *chatVc = destVc;
+        chatVc.friendJid = sender;
+        
+    }
+}
 @end
